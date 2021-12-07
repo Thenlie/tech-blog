@@ -2,6 +2,15 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Comment, Post, User } = require('../models');
 
+// GET /user
+router.get('/', (req, res) => {
+    User.findAll({
+        attributes: ['id', 'username', 'password']
+    }).then(userData => {
+        res.json(userData);
+    });
+});
+
 // GET /user/login
 router.get('/login', (req, res) => {
     res.render('login');
@@ -13,7 +22,25 @@ router.post('/login', (req, res) => {
         where: {
             username: req.body.username
         }
-    });
+    }).then(userData => {
+        if (!userData) {
+            res.status(404).json({ message: 'No user found with that username!' });
+            return;
+        }
+        const validPassword = userData.checkPassword(req.body.password);
+        if (!validPassword) {
+            res.status(404).json({ message: 'No user found with that password!' });
+            return;
+        }
+        req.session.save(() => {
+            req.session.username = userData.username;
+            req.session.loggedIn = true;
+            res.json(userData);
+        });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
 });
 
 // GET /user/signup
@@ -26,7 +53,7 @@ router.post('/signup', (req, res) => {
     User.create({
         username: req.body.username,
         password: req.body.password
-    }).then((userData) => {
+    }).then(userData => {
         req.session.save(() => {
             req.session.username = userData.username;
             req.session.loggedIn = true;
