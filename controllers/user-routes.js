@@ -65,4 +65,14 @@ router.post('/signup', (req, res) => {
     });
 });
 
+// GET /user/logout
+router.get('/logout', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.status(404).end()
+    }
+    req.session.destroy(() => {
+        res.status(200).end();
+    });
+});
+
 module.exports = router;

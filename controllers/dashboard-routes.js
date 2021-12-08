@@ -3,7 +3,7 @@ const router = require('express').Router();
 // const { Comment, Post, User } = require('../models');
 
 router.get('/', (req, res) => {
-    res.render('homepage');
+    res.render('dashboard');
 })
 
 module.exports = router;

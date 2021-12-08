@@ -7,3 +7,12 @@
     <input type="password" id="password" name="password">
     <button type="submit">Login</button>
 </form>
+<div>
+    <span>Don't have an account? Click here to sign up!</span>
+    <button id="signup-btn">Sign Up</button>
+</div>
+
+<script src="/javascript/login.js"></script>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
