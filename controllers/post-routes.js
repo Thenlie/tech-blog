@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../models');
+const { Post, User } = require('../models');
 
 // GET /post/
 router.get('/', (req, res) => {
@@ -18,13 +18,19 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'title', 'user_id']
+        attributes: ['id', 'title', 'content', 'user_id', 'createdAt'],
+        include: {
+            model: User
+        }
     }).then(postData => {
         if (!postData) {
-            res.status(404).json({ message: 'No posts found!' });
+            res.status(404).json({ message: 'No posts found with this ID!' });
             return;
         }
-        res.json(postData);
+        // console.log(postData)
+        // res.json(postData);
+        const post = postData.get({ plain: true })
+        res.render('single-post', { post })
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);

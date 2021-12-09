@@ -1,7 +1,7 @@
 <article>
-    <div class="post-container">
-    <div class="post-header">{{title}}</div>
-    <div class="post-content">{{content}}</div>
-    <div class="post-info">Posted by {{user_id}} on {{createdAt}}</div>
+    <div id="post-container">
+    <a href="/post/{{id}}" id="post-title">{{title}}</a>
+    <div id="post-content">{{content}}</div>
+    <div id="post-info">Posted by {{user.username}} on {{createdAt}}</div>
     </div>
 </article>
