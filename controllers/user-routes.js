@@ -34,6 +34,7 @@ router.post('/login', (req, res) => {
         }
         req.session.save(() => {
             req.session.username = userData.username;
+            req.session.user_id = userData.id;
             req.session.loggedIn = true;
             res.json(userData);
         });
@@ -56,6 +57,7 @@ router.post('/signup', (req, res) => {
     }).then(userData => {
         req.session.save(() => {
             req.session.username = userData.username;
+            req.session.user_id = userData.id;
             req.session.loggedIn = true;
             res.json(userData);
         });
