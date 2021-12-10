@@ -1,7 +1,9 @@
 <article>
     <div id="post-container">
-        <div id="post-title">{{title}}</div>
+        <a href="/post/{{id}}" id="post-title">{{title}}</a>
         <div id="post-content">{{content}}</div>
         <div id="post-info">Posted by {{user.username}} on {{createdAt}}</div>
+        <button id="edit-btn">Edit</button>
+        <button id="delete-btn">Delete</button>
     </div>
 </article>

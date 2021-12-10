@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
         const response = await Post.create({
             title: req.body.title,
             content: req.body.content,
-            user_id: req.body.user_id //Update this to be the session ID
+            user_id: req.session.user_id 
         })
         res.json(response);
     }
