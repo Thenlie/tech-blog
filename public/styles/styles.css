@@ -1,0 +1,68 @@
+:root {
+    --one: #27241D;
+    --two: #423D33;
+    --three: #504A40;
+    --four: #625D52;
+    --five: #857F72;
+    --six: #A39E93;
+    --seven: #B8B2A7;
+    --eight: #D3CEC4;
+    --nine: #E8E6E1;
+    --ten: #FAF9F7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--one);
+    color: var(--eight);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--two);
+}
+
+#button-container {
+    display: flex;
+}
+
+button {
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--seven);
+    color: var(--one);
+    box-shadow: 5px 5px 3px;
+}
+
+button:hover {
+    background-color: var(--five);
+}
+
+#post-container, #single-post-container {
+    background-color: var(--three);
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid var(--five);
+    border-radius: 5px;
+}
+
+#post-title {
+    text-decoration: none;
+    padding: 5px 0;
+    color: var(--ten);
+    font-size: 22px;
+}
+
+#post-container #post-title:hover {
+    color: var(--seven);
+}

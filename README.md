@@ -2,7 +2,7 @@
 
   ## Description
 
-  A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.
+  A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. I built this site completely from scratch and deployed it to Heroku. This app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. This was made during the U of U coding bootcamp. 
 
   ## Table of Contents
 
@@ -15,14 +15,11 @@
 
   ***
 
-  ## Installation
-
-  none
-
   ## Usage
 
-  none
+  This is a public domain! Feel free to go on and use the site. Of course, this is just a school project so it is not really an active form.
 
+  **NOTE: Please do not put sensitive information into this site!**
   
   ## License
   
@@ -199,11 +196,7 @@
 
   ## Contributing
 
-  none
-
-  ## Tests
-
-  none\
+    Feel free to fork this repo and add to the site! Submit a Pull Request if you would like to merge your change with the main project!
   
   ## Questions
 
