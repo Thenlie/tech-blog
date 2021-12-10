@@ -18,7 +18,7 @@ async function signup(evt) {
 
 const login = () => {
     console.log('hit')
-    document.location.replace('/user/login');
+    document.location.replace('/login');
 };
 
 document.querySelector('#login-btn2').addEventListener('click', login);

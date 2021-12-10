@@ -1,6 +1,6 @@
 const login = (evt) => {
     evt.preventDefault();
-    document.location.replace('/user/login');
+    document.location.replace('/login');
 };
 
 document.querySelector('#login-btn').addEventListener('click', login);

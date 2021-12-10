@@ -19,7 +19,7 @@ async function login(evt) {
 };
 
 const signup = () => {
-    document.location.replace('/user/signup');
+    document.location.replace('/signup');
 };
 
 document.querySelector('#signup-btn').addEventListener('click', signup);
