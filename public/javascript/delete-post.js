@@ -1,3 +1,9 @@
+const editPost = (evt) => {
+    evt.preventDefault();
+    const id = window.location.pathname.split('/')[2];
+    document.location.replace(`/post/update/${id}`);
+}
+
 async function deletePost(evt) {
     evt.preventDefault();
     const post_id = window.location.pathname.split('/')[2];
@@ -15,4 +21,5 @@ async function deletePost(evt) {
     }
 };
 
+document.querySelector('#edit-btn').addEventListener('click', editPost);
 document.querySelector('#delete-btn').addEventListener('click', deletePost);

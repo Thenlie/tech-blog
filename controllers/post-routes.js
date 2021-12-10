@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 const { Post, User, Comment } = require('../models');
 
 // GET /post/
@@ -20,8 +21,29 @@ router.get('/', async (req, res) => {
 });
 
 // GET /post/create
-router.get('/create', (req, res) => {
+router.get('/create', withAuth, (req, res) => {
     res.render('create-post', { loggedIn: true }); 
+});
+
+// GET /post/update/1
+router.get('/update/:id', withAuth, async (req, res) => {
+    try {
+        const response = await Post.findOne({
+            where: { id: req.params.id },
+            attributes: ['id', 'title', 'content', 'user_id', 'createdAt'],
+            include: { model: User, attributes: ['username'] },
+        });
+        if (!response) {
+            res.status(404).json({ message: 'No posts found with this ID!' });
+            return;
+        }
+        const post = response.get({ plain: true });
+        res.render('update-post', { post, loggedIn: true }); 
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    };
 });
 
 // GET /post/1
@@ -64,14 +86,24 @@ router.post('/', async (req, res) => {
     };
 });
 
-// PUT /post/
-// router.put('/:id', (req, res) => {
-//     Post.update({
-        // where: {
-        //     id: req.params.id
-        // },
-//     });
-// });
+// PUT /post/1
+router.put('/:id', async (req, res) => {
+    try {
+        const response = await Post.update(
+            { title: req.body.title, content: req.body.content },
+            { where: { id: req.params.id }}
+        );
+        if (!response) {
+            res.status(404).json({ message: 'No posts found with this ID!' });
+            return;
+        }
+        res.json(response)
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 // DELETE /post/1
 router.delete('/', async (req, res) => {

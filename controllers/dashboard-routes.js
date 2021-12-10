@@ -1,8 +1,9 @@
 const { Comment, Post, User } = require('../models');
+const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
 // GET /dashboard
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
         const response = await Post.findAll({
             where: { user_id: req.session.user_id },
             attributes: ['id', 'title', 'content', 'user_id', 'createdAt'],
@@ -13,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET /dashboard/:id
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     const response = await Post.findOne({
         where: { id: req.params.id },
         attributes: ['id', 'title', 'content', 'user_id', 'createdAt'],
