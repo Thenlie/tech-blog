@@ -1,13 +1,16 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 
 // GET /post/
 router.get('/', async (req, res) => {
     try {
         const response = await Post.findAll({
         attributes: ['id', 'title', 'user_id'],
-        include: { model: User }
-        })
+        include: [
+            { model: User, attributes: ['username'] },
+            { model: Comment, attributes: ['content']}
+        ]
+        });
         res.json(response)
     }
     catch (err) {
@@ -22,8 +25,11 @@ router.get('/:id', async (req, res) => {
         const response = await Post.findOne({
             where: { id: req.params.id },
             attributes: ['id', 'title', 'content', 'user_id', 'createdAt'],
-            include: { model: User }
-        })
+            include: [
+                { model: User, attributes: ['username'] },
+                { model: Comment, attributes: ['content']}
+            ]
+        });
         if (!response) {
             res.status(404).json({ message: 'No posts found with this ID!' });
             return;
