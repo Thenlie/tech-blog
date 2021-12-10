@@ -43,13 +43,13 @@ router.post('/signup', async (req, res) => {
         const response = User.create({
             username: req.body.username,
             password: req.body.password
-        })
+        });
         req.session.save(() => {
             req.session.username = response.username;
             req.session.user_id = response.id;
             req.session.loggedIn = true;
-            res.json(response);
         });
+        res.json(response);
     }
     catch (err) {
         console.log(err);

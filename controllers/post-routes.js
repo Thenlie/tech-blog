@@ -5,7 +5,8 @@ const { Post, User } = require('../models');
 router.get('/', async (req, res) => {
     try {
         const response = await Post.findAll({
-        attributes: ['id', 'title', 'user_id']
+        attributes: ['id', 'title', 'user_id'],
+        include: { model: User }
         })
         res.json(response)
     }
@@ -18,7 +19,6 @@ router.get('/', async (req, res) => {
 // GET /post/1
 router.get('/:id', async (req, res) => {
     try {
-
         const response = await Post.findOne({
             where: { id: req.params.id },
             attributes: ['id', 'title', 'content', 'user_id', 'createdAt'],
@@ -28,8 +28,8 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ message: 'No posts found with this ID!' });
             return;
         }
-        const post = response.get({ plain: true })
-        res.render('single-post', { post, loggedIn: req.session.loggedIn})
+        const post = response.get({ plain: true });
+        res.render('single-post', { post, loggedIn: req.session.loggedIn});
     }
     catch (err) {
         console.log(err);
