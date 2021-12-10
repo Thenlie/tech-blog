@@ -1,11 +1,15 @@
 {{> nav }}
-<article>
-    <div id="post-container">
+<div id="post-container">
     <div id="post-title">{{post.title}}</div>
     <div id="post-content">{{post.content}}</div>
     <div id="post-info">Posted by {{post.user.username}} on {{post.createdAt}}</div>
-    </div>
-</article>
+</div>
+{{#each post.comments}}
+<div id="comment-container">
+    <div id="comment-content">{{content}}</div>
+    <div id="comment-info">Comment by {{user.username}} on {{createdAt}}</div>
+</div>
+{{/each}}
 {{#if loggedIn}}
 <form id="comment-form">
     <textarea id="comment" placeholder="Comment"></textarea>
