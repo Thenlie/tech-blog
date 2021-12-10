@@ -4,11 +4,19 @@
         <div id="button-container">
             <button id="home-btn">Home</button>
             {{#if loggedIn}}
+            {{#unless dashboard}}
+            {{!-- if logged in and not on Dashboard --}}
             <button id="dashboard-btn">Dashboard</button>
+            {{/unless}}
+            {{!-- if logged in --}}
             <button id="logout-btn">Logout</button>
             {{else}}
+            {{!-- if not logged in and at home--}}
+            {{#if home}}
             <button id="login-btn">Login</button>
             <button id="signup-btn">Sign Up</button>
+            {{/if}}
+            {{!-- if not at home --}}
             {{/if}}
         </div>
     </nav>

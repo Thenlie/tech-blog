@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
                 { model: Comment, include: { model: User } }]
         });
         const posts = response.map(post => post.get({ plain: true }));
-        res.render('homepage', { posts, loggedIn: req.session.loggedIn });
+        res.render('homepage', { posts, loggedIn: req.session.loggedIn, home: true });
     }
     catch (err) {
         console.log(err);
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 
 // GET /login
 router.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login', { login: true });
 });
 
 // GET /signup

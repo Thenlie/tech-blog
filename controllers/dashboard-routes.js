@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
             include: { model: User }
         });
         const posts = response.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: req.session.loggedIn });
+        res.render('dashboard', { posts, loggedIn: req.session.loggedIn, dashboard: true });
 });
 
 // GET /dashboard/:id

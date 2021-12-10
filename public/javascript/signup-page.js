@@ -21,5 +21,5 @@ const login = () => {
     document.location.replace('/login');
 };
 
-document.querySelector('#login-btn2').addEventListener('click', login);
+document.querySelector('#login-btn').addEventListener('click', login);
 document.querySelector('#signup-form').addEventListener('submit', signup);
