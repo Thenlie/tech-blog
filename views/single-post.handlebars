@@ -1,8 +1,18 @@
 {{> nav }}
 <article>
-    <div class="post-container">
-    <div class="post-title">{{post.title}}</div>
-    <div class="post-content">{{post.content}}</div>
-    <div class="post-info">Posted by {{post.user.username}} on {{post.createdAt}}</div>
+    <div id="post-container">
+    <div id="post-title">{{post.title}}</div>
+    <div id="post-content">{{post.content}}</div>
+    <div id="post-info">Posted by {{post.user.username}} on {{post.createdAt}}</div>
     </div>
 </article>
+{{#if loggedIn}}
+<form id="comment-form">
+    <textarea id="comment" placeholder="Comment"></textarea>
+    <button type="submit" id="comment-btn">Comment</button>
+</form>
+<script src="/javascript/logout.js"></script>
+<script src="/javascript/dashboard.js"></script>
+{{else}} 
+<script src="/javascript/login.js"></script>
+{{/if}}
