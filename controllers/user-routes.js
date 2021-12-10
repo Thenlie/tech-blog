@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Comment, Post, User } = require('../models');
+const { User } = require('../models');
 
 // GET /user
 router.get('/', (req, res) => {
@@ -19,9 +18,7 @@ router.get('/login', (req, res) => {
 // POST /user/login
 router.post('/login', (req, res) => {
     User.findOne({
-        where: {
-            username: req.body.username
-        }
+        where: { username: req.body.username }
     }).then(userData => {
         if (!userData) {
             res.status(404).json({ message: 'No user found with that username!' });

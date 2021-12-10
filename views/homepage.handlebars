@@ -3,7 +3,9 @@
 {{#each posts as |post|}}
 {{> posts}}
 {{/each}}
-<script src="/javascript/homepage.js"></script>
 {{#if loggedIn}}
+<script src="/javascript/dashboard.js"></script>
 <script src="/javascript/logout.js"></script>
+{{else}}
+<script src="/javascript/homepage.js"></script>
 {{/if}}

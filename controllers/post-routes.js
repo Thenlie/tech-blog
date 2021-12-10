@@ -15,13 +15,9 @@ router.get('/', (req, res) => {
 // GET /post/1
 router.get('/:id', (req, res) => {
     Post.findOne({
-        where: {
-            id: req.params.id
-        },
+        where: { id: req.params.id },
         attributes: ['id', 'title', 'content', 'user_id', 'createdAt'],
-        include: {
-            model: User
-        }
+        include: { model: User }
     }).then(postData => {
         if (!postData) {
             res.status(404).json({ message: 'No posts found with this ID!' });
@@ -63,9 +59,7 @@ router.post('/', (req, res) => {
 // DELETE /post/1
 router.delete('/:id', (req, res) => {
     Post.destroy({
-        where: {
-            id: req.params.id
-        },
+        where: { id: req.params.id },
     }).then(postData => {
         if (!postData) {
             res.status(404).json({ message: 'No posts found!' });
