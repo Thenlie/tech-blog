@@ -1,4 +1,4 @@
-{{> nav }}
+{{> login-nav }}
 <div id="single-post-container">
     <div id="post-title">{{post.title}}</div>
     <div id="post-content">{{post.content}}</div>
@@ -10,14 +10,8 @@
     <div id="comment-info">Comment by {{user.username}} on {{createdAt}}</div>
 </div>
 {{/each}}
-{{#if loggedIn}}
-<form id="comment-form">
-    <textarea id="comment" placeholder="Comment"></textarea>
-    <button type="submit" id="comment-btn">Comment</button>
-</form>
+<button id="edit-btn">Edit</button>
+<button id="delete-btn">Delete</button>
+<script src="/javascript/delete-post.js"></script>
 <script src="/javascript/logout.js"></script>
 <script src="/javascript/dashboard.js"></script>
-<script src='/javascript/create-comment.js'></script>
-{{else}} 
-<script src="/javascript/login.js"></script>
-{{/if}}

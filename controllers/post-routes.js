@@ -19,6 +19,11 @@ router.get('/', async (req, res) => {
     };
 });
 
+// GET /post/create
+router.get('/create', (req, res) => {
+    res.render('create-post', { loggedIn: true }); 
+});
+
 // GET /post/1
 router.get('/:id', async (req, res) => {
     try {
@@ -69,10 +74,10 @@ router.post('/', async (req, res) => {
 // });
 
 // DELETE /post/1
-router.delete('/:id', async (req, res) => {
+router.delete('/', async (req, res) => {
     try {
         const response = await Post.destroy({
-            where: { id: req.params.id },
+            where: { id: req.body.id },
         })
         if (!response) {
             res.status(404).json({ message: 'No posts found!' });
