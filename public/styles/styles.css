@@ -62,10 +62,10 @@ button:hover {
 
 #post-container, #single-post-container {
     background-color: var(--three);
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 5px;
     border: 1px solid var(--five);
-    border-radius: 5px;
+    border-radius: 2px;
     width: 85%;
 }
 
@@ -90,7 +90,7 @@ button:hover {
     color: var(--eight);
     margin: 2px;
     font-style: italic;
-    font-size: 14px;
+    font-size: 12px;
     text-align: right;
 }
 
@@ -98,7 +98,7 @@ button:hover {
     text-align: center;
 }
 
-#edit-btn, #delete-btn, #create-btn, #update-btn, #post-btn {
+#edit-btn, #delete-btn, #create-btn, #update-btn, #post-btn, .form-btn {
     padding: 15px;
 }
 
@@ -113,7 +113,7 @@ button:hover {
     padding: 5px;
     border: 1px solid var(--five);
     border-radius: 5px;
-    width: 90%;
+    width: 95%;
 }
 
 #comment-content {
@@ -123,10 +123,10 @@ button:hover {
 #comment-info {
     text-align: right;
     font-style: italic;
-    font-size: 14px;
+    font-size: 12px;
 }
 
-#comment-form {
+#comment-form, #login-form, #signup-form {
     margin: 10px auto;
     display: flex;
     justify-content: center;
@@ -156,7 +156,7 @@ button:hover {
     padding: 3px;
 }
 
-#post-form input {
+#post-form input, #login-form input, #signup-form input {
     padding: 3px;
 }
 
@@ -165,7 +165,11 @@ button:hover {
     height: 75px;
 }
 
-#update-btn, #create-btn {
+#update-btn, #create-btn, .form-btn {
     margin: 10px auto;
     width: 25%;
+}
+
+#no-account {
+    text-align: center;
 }
