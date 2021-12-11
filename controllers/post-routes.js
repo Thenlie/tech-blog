@@ -62,7 +62,7 @@ router.get('/:id', async (req, res) => {
             return;
         }
         const post = response.get({ plain: true });
-        res.render('single-post', { post, loggedIn: req.session.loggedIn});
+        res.render('single-post', { post, loggedIn: req.session.loggedIn, home: true});
     }
     catch (err) {
         console.log(err);
