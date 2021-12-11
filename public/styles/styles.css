@@ -9,6 +9,7 @@
     --eight: #D3CEC4;
     --nine: #E8E6E1;
     --ten: #FAF9F7;
+    --eleven: rgb(233, 220, 103);
 }
 
 * {
@@ -20,6 +21,7 @@
 body {
     background-color: var(--one);
     color: var(--eight);
+    font-family: 'Raleway', sans-serif;
 }
 
 nav {
@@ -28,6 +30,11 @@ nav {
     align-items: center;
     padding: 10px;
     background-color: var(--two);
+    box-shadow: 10px 1px 15px black;
+}
+
+nav h1 {
+    color: var(--eleven);
 }
 
 #button-container {
@@ -50,10 +57,11 @@ button:hover {
 
 #post-container, #single-post-container {
     background-color: var(--three);
-    margin: 10px;
+    margin: 10px auto;
     padding: 5px;
     border: 1px solid var(--five);
     border-radius: 5px;
+    width: 85%;
 }
 
 #post-title {
@@ -63,6 +71,29 @@ button:hover {
     font-size: 22px;
 }
 
+#post-content {
+    padding: 5px;
+    font-size: 18px;
+}
+
 #post-container #post-title:hover {
     color: var(--seven);
+}
+
+#post-info {
+    font-style: italic;
+    font-size: 14px;
+}
+
+#post-btn-container {
+    text-align: center;
+}
+
+#post-btn {
+    padding: 15px;
+}
+
+#dashboard-header {
+    margin: 10px;
+    text-align: center;
 }
