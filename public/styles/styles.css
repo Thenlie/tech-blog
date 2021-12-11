@@ -66,6 +66,7 @@ button:hover {
 
 #post-title {
     text-decoration: none;
+    margin: 5px;
     padding: 5px 0;
     color: var(--ten);
     font-size: 22px;
@@ -81,19 +82,60 @@ button:hover {
 }
 
 #post-info {
+    color: var(--eight);
+    margin: 2px;
     font-style: italic;
     font-size: 14px;
+    text-align: right;
 }
 
-#post-btn-container {
+#post-btn-container, #dash-btn-container {
     text-align: center;
 }
 
-#post-btn {
+#post-btn, #edit-btn, #delete-btn {
     padding: 15px;
 }
 
 #dashboard-header {
     margin: 10px;
     text-align: center;
+}
+
+#comment-container {
+    background-color: var(--two);
+    margin: 10px auto;
+    padding: 5px;
+    border: 1px solid var(--five);
+    border-radius: 5px;
+    width: 90%;
+}
+
+#comment-content {
+    margin: 5px;
+}
+
+#comment-info {
+    text-align: right;
+    font-style: italic;
+    font-size: 14px;
+}
+
+#comment-form {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+#comment-form #comment {
+    height: 50px;
+    padding: 5px;
+    background-color: var(--eight);
+}
+
+#comment-btn {
+    margin: 10px auto;
+    width: 50%;
 }
