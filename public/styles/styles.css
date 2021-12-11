@@ -35,6 +35,11 @@ nav {
 
 nav h1 {
     color: var(--eleven);
+    cursor: pointer;
+}
+
+nav h1:hover {
+    color: rgb(187, 176, 73);
 }
 
 #button-container {
@@ -93,12 +98,12 @@ button:hover {
     text-align: center;
 }
 
-#post-btn, #edit-btn, #delete-btn {
+#edit-btn, #delete-btn, #create-btn, #update-btn, #post-btn {
     padding: 15px;
 }
 
-#dashboard-header {
-    margin: 10px;
+#header, #header {
+    margin: 15px;
     text-align: center;
 }
 
@@ -138,4 +143,29 @@ button:hover {
 #comment-btn {
     margin: 10px auto;
     width: 50%;
+}
+
+#post-form {
+    width: 50%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#post-form label {
+    padding: 3px;
+}
+
+#post-form input {
+    padding: 3px;
+}
+
+#post-form #content {
+    padding: 5px;
+    height: 75px;
+}
+
+#update-btn, #create-btn {
+    margin: 10px auto;
+    width: 25%;
 }

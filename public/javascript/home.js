@@ -2,4 +2,4 @@ home = () => {
     document.location.replace('/');
 };
 
-document.querySelector('#home-btn').addEventListener('click', home);
+document.querySelector('#logo-btn').addEventListener('click', home);
