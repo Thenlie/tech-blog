@@ -11,7 +11,7 @@ const app = express();
 // Create sequelize session
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
-    secret: 'somerandomstringoftext',
+    secret: JAWSDB_SC,
     cookie: {},
     resave: false,
     saveUninitialized: true,
