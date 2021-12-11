@@ -15,7 +15,6 @@ router.get('/', async (req, res) => {
         res.json(response)
     }
     catch (err) {
-        console.log(err);
         res.status(500).json(err);
     };
 });
@@ -41,7 +40,6 @@ router.get('/update/:id', withAuth, async (req, res) => {
         res.render('update-post', { post, loggedIn: true }); 
     }
     catch (err) {
-        console.log(err);
         res.status(500).json(err);
     };
 });
@@ -65,7 +63,6 @@ router.get('/:id', async (req, res) => {
         res.render('single-post', { post, loggedIn: req.session.loggedIn, home: true});
     }
     catch (err) {
-        console.log(err);
         res.status(500).json(err);
     };
 });
@@ -81,7 +78,6 @@ router.post('/', async (req, res) => {
         res.json(response);
     }
     catch (err) {
-        console.log(err);
         res.status(500).json(err);
     };
 });
@@ -100,7 +96,6 @@ router.put('/:id', async (req, res) => {
         res.json(response)
     }
     catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -118,7 +113,6 @@ router.delete('/', async (req, res) => {
         res.json(response);
     }
     catch (err) {
-        console.log(err);
         res.status(500).json(err);
     };
 });

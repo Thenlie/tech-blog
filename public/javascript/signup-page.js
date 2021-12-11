@@ -17,7 +17,6 @@ async function signup(evt) {
 };
 
 const login = () => {
-    console.log('hit')
     document.location.replace('/login');
 };
 
