@@ -1,8 +1,10 @@
 {{> nav }}
 <div id="single-post-container">
-    <div id="post-title">{{post.title}}</div>
+    <div id="post-title-container">
+        <div id="post-title">{{post.title}}</div>
+        <div id="post-info">Posted by {{post.user.username}} on {{format_date post.createdAt}}</div>
+    </div>
     <div id="post-content">{{post.content}}</div>
-    <div id="post-info">Posted by {{post.user.username}} on {{format_date post.createdAt}}</div>
 {{#each post.comments}}
 <div id="comment-container">
     <div id="comment-content">{{content}}</div>

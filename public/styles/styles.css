@@ -63,7 +63,7 @@ button:hover {
 #post-container, #single-post-container {
     background-color: var(--three);
     margin: 20px auto;
-    padding: 5px;
+    /* padding: 5px; */
     border: 1px solid var(--five);
     border-radius: 2px;
     width: 85%;
@@ -71,10 +71,18 @@ button:hover {
 
 #post-title {
     text-decoration: none;
-    margin: 5px;
     padding: 5px 0;
     color: var(--ten);
     font-size: 22px;
+}
+
+#post-title-container {
+    background-color: var(--two);
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #post-content {

@@ -1,7 +1,9 @@
 <article>
     <div id="post-container">
+    <div id="post-title-container">
         <a href="/dashboard/{{id}}" id="post-title">{{title}}</a>
-        <div id="post-content">{{content}}</div>
         <div id="post-info">Posted by {{user.username}} on {{format_date createdAt}}</div>
+    </div>
+        <div id="post-content">{{content}}</div>
     </div>
 </article>
