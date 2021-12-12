@@ -6,6 +6,7 @@ const router = require('express').Router();
 router.get('/', withAuth, async (req, res) => {
         const response = await Post.findAll({
             where: { user_id: req.session.user_id },
+            order: [['id', 'DESC']],
             attributes: ['id', 'title', 'content', 'user_id', 'createdAt'],
             include: { model: User }
         });
