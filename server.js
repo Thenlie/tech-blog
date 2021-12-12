@@ -10,12 +10,23 @@ const app = express();
 
 // Create sequelize session  
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const sess = {
-    secret: process.env.JAWSDB_SC,
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({ db: sequelize })
+let sess;
+if (process.env.JAWSDB_SC) {
+    sess = {
+        secret: process.env.JAWSDB_SC,
+        cookie: {},
+        resave: false,
+        saveUninitialized: true,
+        store: new SequelizeStore({ db: sequelize })
+    }
+} else {
+    sess = {
+        secret: 'somerandomstring',
+        cookie: {},
+        resave: false,
+        saveUninitialized: true,
+        store: new SequelizeStore({ db: sequelize })
+    }
 }
 app.use(session(sess))
 
@@ -31,6 +42,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers'));
 
 // Start server with sequelize
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
 });

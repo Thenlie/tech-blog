@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
 // POST /user/signup
 router.post('/signup', async (req, res) => {
     try {
-        const response = User.create({
+        const response = await User.create({
             username: req.body.username,
             password: req.body.password
         });
@@ -48,7 +48,7 @@ router.post('/signup', async (req, res) => {
             req.session.username = response.username;
             req.session.user_id = response.id;
             req.session.loggedIn = true;
-            res.json({ user: response.username, message: 'You are now signed up!'  });;
+            res.json(response);
         });
     }
     catch (err) {
