@@ -8,10 +8,10 @@ const path = require('path');
 const PORT = process.env.PORT || 3001
 const app = express();
 
-// Create sequelize session
+// Create sequelize session  process.env.JAWSDB_SC
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
-    secret: process.env.JAWSDB_SC,
+    secret: 'somerandomstring',
     cookie: {},
     resave: false,
     saveUninitialized: true,
