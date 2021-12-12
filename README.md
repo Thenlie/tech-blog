@@ -1,5 +1,7 @@
 # Tech Blog  ![Project License Badge](https://img.shields.io/badge/license-GNU-brightgreen)
 
+  [https://safe-journey-60844.herokuapp.com/](https://safe-journey-60844.herokuapp.com/)
+
   ## Description
 
   A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. I built this site completely from scratch and deployed it to Heroku. This app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. This was made during the U of U coding bootcamp. 
@@ -18,6 +20,8 @@
   ## Usage
 
   This is a public domain! Feel free to go on and use the site. Of course, this is just a school project so it is not really an active form.
+
+  ![Screenshot of The Tech Blog](https://github.com/Thenlie/tech-blog/blob/main/assets/screenshot.png)
 
   **NOTE: Please do not put sensitive information into this site!**
   
@@ -196,7 +200,7 @@
 
   ## Contributing
 
-    Feel free to fork this repo and add to the site! Submit a Pull Request if you would like to merge your change with the main project!
+  Feel free to fork this repo and add to the site! Submit a Pull Request if you would like to merge your change with the main project!
   
   ## Questions
 
