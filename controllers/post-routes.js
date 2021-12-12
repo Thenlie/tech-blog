@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
         res.json(response)
     }
     catch (err) {
-        res.status(500).json(err);
+        res.status(500);
     };
 });
 
@@ -33,14 +33,14 @@ router.get('/update/:id', withAuth, async (req, res) => {
             include: { model: User, attributes: ['username'] },
         });
         if (!response) {
-            res.status(404).json({ message: 'No posts found with this ID!' });
+            res.status(404).json;
             return;
         }
         const post = response.get({ plain: true });
         res.render('update-post', { post, loggedIn: true }); 
     }
     catch (err) {
-        res.status(500).json(err);
+        res.status(500);
     };
 });
 
@@ -56,14 +56,14 @@ router.get('/:id', async (req, res) => {
             ]
         });
         if (!response) {
-            res.status(404).json({ message: 'No posts found with this ID!' });
+            res.status(404).json;
             return;
         }
         const post = response.get({ plain: true });
         res.render('single-post', { post, loggedIn: req.session.loggedIn, home: true});
     }
     catch (err) {
-        res.status(500).json(err);
+        res.status(500);
     };
 });
 
@@ -78,7 +78,7 @@ router.post('/', async (req, res) => {
         res.json(response);
     }
     catch (err) {
-        res.status(500).json(err);
+        res.status(500);
     };
 });
 
@@ -90,13 +90,13 @@ router.put('/:id', async (req, res) => {
             { where: { id: req.params.id }}
         );
         if (!response) {
-            res.status(404).json({ message: 'No posts found with this ID!' });
+            res.status(404);
             return;
         }
         res.json(response)
     }
     catch (err) {
-        res.status(500).json(err);
+        res.status(500);
     }
 });
 
@@ -107,13 +107,13 @@ router.delete('/', async (req, res) => {
             where: { id: req.body.id },
         })
         if (!response) {
-            res.status(404).json({ message: 'No posts found!' });
+            res.status(404);
             return;
         }
         res.json(response);
     }
     catch (err) {
-        res.status(500).json(err);
+        res.status(500);
     };
 });
 

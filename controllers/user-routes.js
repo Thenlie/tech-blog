@@ -17,12 +17,12 @@ router.post('/login', async (req, res) => {
             where: { username: req.body.username }
         });
         if (!response) {
-            res.status(404).json({ message: 'No user found with that username!' });
+            res.status(404);
             return;
         }
         const validPassword = response.checkPassword(req.body.password);
         if (!validPassword) {
-            res.status(404).json({ message: 'No user found with that password!' });
+            res.status(404);
             return;
         }
         req.session.save(() => {
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
         })   
     }
     catch (err) {
-        res.status(500).json(err);
+        res.status(500);
     }
 });
 
@@ -52,7 +52,7 @@ router.post('/signup', async (req, res) => {
         });
     }
     catch (err) {
-        res.status(500).json(err);
+        res.status(500);
     };
 });
 

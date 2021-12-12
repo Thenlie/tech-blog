@@ -21,7 +21,7 @@ router.get('/:id', withAuth, async (req, res) => {
         include: [{ model: User }, { model: Comment }]
     });
     if (!response) {
-        res.status(404).json({ message: 'No posts found with that id!'});
+        res.status(404);
     }
     const post = response.get({ plain: true });
     res.render('dashboard-post', { post, loggedIn: req.session.loggedIn });
