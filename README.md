@@ -19,7 +19,7 @@
 
   ## Usage
 
-  This is a public domain! Feel free to go on and use the site. Of course, this is just a school project so it is not really an active form.
+  This is a public domain! Feel free to go on and use the site. Of course, this is just a school project so it is not really an active forum.
 
   ![Screenshot of The Tech Blog](https://github.com/Thenlie/tech-blog/blob/main/assets/screenshot.png)
 
